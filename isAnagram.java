@@ -11,21 +11,14 @@ class Solution {
             char c=t.charAt(i);
             b.put(c,b.getOrDefault(c,0)+1);
         }
-        System.out.println(a);
-        System.out.println(b);
-        /*for (Map.Entry<Character,Integer> entry:a.entrySet()) {
-            char key = entry.getKey();
-            if (entry.getValue()!=b.get(key)) {
-                System.out.println("key="+key+"; val="+entry.getValue());
-                System.out.println("key="+key+"; val="+b.get(key));
-                System.out.println(a.get(key)==b.get(key));
-                return false;
-            }
-            //System.out.println(entry.getKey());
-        }*/
         for (char cc:a.keySet()) {
-            if (a.get(cc)!=b.get(cc)) {
-                System.out.println("cc="+cc+" "+(a.get(cc)==b.get(cc)));
+            int va=a.get(cc);
+            if (b.containsKey(cc)) {
+                int vb=b.get(cc);
+                if (va!=vb) {
+                    return false;
+                }
+            } else {
                 return false;
             }
         }
